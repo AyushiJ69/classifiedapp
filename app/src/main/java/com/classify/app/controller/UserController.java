@@ -1,17 +1,32 @@
 package com.classify.app.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.classify.app.model.User;
+import com.classify.app.service.RegisterUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.http.HttpResponse;
 
 @RestController
-@RequestMapping("getUser")
+@RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    RegisterUser registerUser;
+
     @GetMapping(path="/", produces = "application/json")
     public String getAllUser() {
        return "Hello";
     }
 
+    @PostMapping(value = "/register",produces = "application/json")
+    public User registerUser(@RequestBody User user){
+        return registerUser.registerUser(user);
+    }
+    @PutMapping(value = "/update",produces = "application/json")
+    public User updateUser(@RequestBody User user){
+        return registerUser.registerUser(user);
+    }
 
 }
 

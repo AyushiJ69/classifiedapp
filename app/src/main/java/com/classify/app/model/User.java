@@ -11,10 +11,10 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name="user")
+@Table(name="users")
 public class User implements Serializable {
 
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private @Id @Setter(AccessLevel.PROTECTED) long user_id;
     private String name;
     private String gender;
@@ -29,7 +29,6 @@ public class User implements Serializable {
     private String country;
 
     @OneToMany
-    @JoinColumn(name="role")
-    private List<Role> roles;
+    private List<Role> role;
 
 }
