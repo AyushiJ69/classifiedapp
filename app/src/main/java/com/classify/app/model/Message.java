@@ -8,6 +8,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,6 +22,6 @@ public class Message {
     private String text;
     private long senderId;
     private long receiverId;
-    private Date datetime;
+    private LocalDate datetime;
 
 }
