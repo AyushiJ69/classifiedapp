@@ -32,4 +32,5 @@ public class Advertisement {
     private String location;
     private Date lastDate;
     private long price;
+    private boolean blocked;
 }

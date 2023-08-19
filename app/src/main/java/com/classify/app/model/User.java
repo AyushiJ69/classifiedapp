@@ -31,4 +31,6 @@ public class User implements Serializable {
     @OneToMany
     private List<Role> role;
 
+    private boolean blocked;
+
 }
