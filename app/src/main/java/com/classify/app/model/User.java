@@ -14,8 +14,9 @@ import java.util.List;
 @Table(name="users")
 public class User implements Serializable {
 
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private @Id @Setter(AccessLevel.PROTECTED) long user_id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private @Id
+    @Setter(AccessLevel.PROTECTED) long user_id;
     private String name;
     private String gender;
     private String image;
