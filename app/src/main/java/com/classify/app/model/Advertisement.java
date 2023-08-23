@@ -21,16 +21,16 @@ public class Advertisement {
     private Date postdatetime;
     private String status;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name="user_id")
-    private User user;
+    private User user;*/
 
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category;
+    /*@ManyToOne
+    @JoinColumn(name="category_id")*/
+    private String category;
 
     private String location;
     private Date lastDate;
     private long price;
-    private boolean blocked;
+    private boolean blocked = false;
 }

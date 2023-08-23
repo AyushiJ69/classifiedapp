@@ -20,25 +20,18 @@ public class BuyerController {
     CheckUser checkUser;
     @Autowired
     AdvertisementService advertisementService;
+    @Autowired
+    AdvertisementRepository advertisementRepository;
 
-    @GetMapping(path = "/search/{name}")
-    public List<Advertisement> searchByProductName(@PathVariable String name , @RequestParam long userId){
-        if(checkUser.checkBuyer(userId)!=null)
-        {
-            List<Advertisement> adv =  advertisementService.getByUserId(userId);
-            return adv.stream().filter(advertisement -> advertisement.getTitle().equalsIgnoreCase(name)).collect(Collectors.toList());
-        }
-        return null;
+    @GetMapping(path = "/search")
+    public List<Advertisement> searchByProductName(){
+
+        return advertisementRepository.findAll();
     }
 
     @GetMapping(path = "/category/{category}")
-    public List<Advertisement> searchByCategory(@PathVariable String category , @RequestParam long userId){
-        if(checkUser.checkBuyer(userId)!=null)
-        {
-            List<Advertisement> adv =  advertisementService.getByUserId(userId);
-            return adv.stream().filter(advertisement -> advertisement.getCategory().getName().equalsIgnoreCase(category)).collect(Collectors.toList());
-        }
-        return null;
+    public List<Advertisement> searchByCategory(@PathVariable String category ){
+            return advertisementRepository.findByCategory(category);
     }
     @GetMapping(path = "/location/{location}")
     public List<Advertisement> searchByLocation(@PathVariable String location , @RequestParam long userId){

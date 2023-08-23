@@ -22,28 +22,22 @@ public class SellerController {
 
     @PostMapping(path = "/add")
     public Advertisement addAdvertisement(@RequestBody Advertisement advertisement , @RequestParam long userId){
-        if(checkUser.checkSeller(userId)!=null)
-        {
+
             return advertisementService.add(advertisement);
         }
-        return null;
-    }
 
     @PostMapping(path = "/update")
     public Advertisement updateAdvertisement(@RequestBody Advertisement advertisement , @RequestParam long userId){
-        if(checkUser.checkSeller(userId)!=null)
-        {
+
             return advertisementService.add(advertisement);
-        }
-        return null;
+
     }
 
     @DeleteMapping(path = "/delete/{advId}")
     public HttpStatus deleteAdvertisement(@PathVariable("advId") Long advId , @RequestParam long userId){
-        if(checkUser.checkSeller(userId)!=null)
-        {
+
             advertisementService.delete(advId);
-        }
+
         return HttpStatus.ACCEPTED;
     }
 }
