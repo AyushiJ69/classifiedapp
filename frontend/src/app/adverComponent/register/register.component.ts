@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
   
   onSubmit(): any {
     if(this.userForm.value.confirmPassword != this.userForm.value.password){
-      this.errors="Two Password Not Indinticat !"
+      this.errors="Password not matched !"
     }else{
     this.crudService.register(this.userForm.value)
     .subscribe(() => {

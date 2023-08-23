@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   // ,{title:"Example1",type:"A",category:"ABC",tag:"a",description:"a",photoUrl:"https://help.apple.com/assets/640A52196275DE31D4371B5E/640A52226275DE31D4371B8B/en_US/0473dc1ed2d23593ccc1bce26e9c2011.png"}];
   Ads:any = [];
   tags:any = [{tagName:'trending'},{tagName:'hot'},{tagName:'top'}];
-  category:any = [{categoryName:'books'},{categoryName:'accessories'}];
+  category:any = [{categoryName:'cars'},{categoryName:'cloths'},{categoryName:'mobile'},{categoryName:'books'},{categoryName:'accessories'}];
   selectedTagsList = [];
   selectedCategoryList = [];
   checkedIDs = [];

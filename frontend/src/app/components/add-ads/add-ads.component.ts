@@ -15,7 +15,7 @@ export class AddAdsComponent implements OnInit {
   tagForm: FormGroup;
   categoryForm: FormGroup;
   tags:any = [{tagName:'trending'},{tagName:'hot'},{tagName:'top'}];
-  categories:any = [{categoryName:'books'},{categoryName:'accessories'}];
+  categories:any = [{categoryName:'cars'},{categoryName:'cloths'},{categoryName:'mobile'},{categoryName:'books'},{categoryName:'accessories'}];
   tagname: any;
   categoryname: any;
   constructor(
