@@ -25,7 +25,7 @@
         <label>Choose Category Name  </label> <pre></pre>
        
         <div class="btn-group">
-          <select name="project" class="form-control" (change)="changeCategory($event)" > 
+          <select name="project" class="form-control" formControlName="category" (change)="changeCategory($event)" > 
             <option *ngFor="let opt of categories" [value]="opt.categoryName">{{opt.categoryName}}</option>
            <!-- Dynamic list of options based on above two select box values -->
           </select>
@@ -42,12 +42,12 @@
 
         <div class="form-group">
           <label> Description </label>
-          <input class="form-control" type="text" formControlName="description" required>
+          <input class="form-control" type="text" formControlName="text" required>
         </div>
 
         <div class="form-group">
           <label> ImageUrl </label>
-          <input class="form-control" type="text" formControlName="photoUrl">
+          <input class="form-control" type="text" formControlName="images">
         </div>
         
 

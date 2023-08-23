@@ -13,7 +13,8 @@ import { ListCategoryComponent } from './categoryComponents/list-category/list-c
 import { ListTagsComponent } from './tagComponents/list-tags/list-tags.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'ads-list', component: ListAdsComponent },
   { path: 'add-ads', component: AddAdsComponent },
   { path: 'edit-ads/:id', component: DetailsAdsComponent },

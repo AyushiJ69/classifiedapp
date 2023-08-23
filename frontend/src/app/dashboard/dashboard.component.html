@@ -28,8 +28,8 @@
 
     <div class="col-sm-6">
       <div class="card">
-        <div *ngIf="item.photoUrl; else elseNotDone">
-          <img class="card-img-top" width="150px" height="400px" src="{{item.photoUrl}}" alt="Card image cap">
+        <div *ngIf="item.images; else elseNotDone">
+          <img class="card-img-top" width="150px" height="400px" src="{{item.images}}" alt="Card image cap">
         </div>
         <ng-template #elseNotDone>
           <img class="card-img-top" width="150px" height="400px" src="{{image}}" alt="Card image cap">
@@ -41,7 +41,7 @@
           <h5 class="card-title">{{item.type}}</h5>
           <h5 class="card-title">{{item.category}}</h5>
           <h5 class="card-title">#{{item.tag}}</h5>
-          <p class="card-text">{{item.description}}.</p>
+          <p class="card-text">{{item.text}}.</p>
           <a href="#" class="btn btn-primary">More Detials</a>
         </div>
       </div>

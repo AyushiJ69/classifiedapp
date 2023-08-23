@@ -11,9 +11,9 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class CrudService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8080/';
   //Node/user
-  REST_User_API: string = 'http://localhost:8000/user';
+  REST_User_API: string = 'http://localhost:8080/user';
 
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
@@ -24,7 +24,7 @@ export class CrudService {
   Addads(data: Ads): Observable<any> {
     console.log("result :")
     console.log(data)
-    let API_URL = `${this.REST_API}/add-ads`;
+    let API_URL = `${this.REST_API}seller/add?userId=1`;
     return this.httpClient.post(API_URL, data)
       .pipe(
         catchError(this.handleError)
@@ -33,7 +33,7 @@ export class CrudService {
 
   // Get all objects
   Getads() {
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}buyer/search`);
   }
 
   // Get single object
@@ -71,7 +71,7 @@ export class CrudService {
   register(data: Advertisor): Observable<any> {
     // console.log("result :")
     // console.log(data)
-    let API_URL = `${this.REST_User_API}/signUp`;
+    let API_URL = `${this.REST_User_API}/register`;
     return this.httpClient.post(API_URL, data)
       .pipe(
         catchError(this.handleError)
@@ -86,7 +86,7 @@ export class CrudService {
   // Get single object
   logIn(data: Advertisor): Observable<any> {
     let API_URL = `${this.REST_User_API}/login`;
-    return this.httpClient.post(API_URL, data)
+    return this.httpClient.get(`${API_URL}/${data.name}`, )
       .pipe(map((res: any) => {
         return res || {}
       }),
@@ -145,8 +145,8 @@ export class CrudService {
    getAdsByCategory(data) {
     console.log("data")
     console.log(data)
-    let API_URL = `${this.REST_API}/get-adsWithCompnents`;
-    return this.httpClient.post(API_URL, data)
+    let API_URL = `${this.REST_API}buyer/category/${data[0].categoryName}`;
+    return this.httpClient.get(API_URL)
       .pipe(
         catchError(this.handleError)
       )

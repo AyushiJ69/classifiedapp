@@ -12,9 +12,25 @@ export class Ads {
 }
 
 export class Advertisor{
-    _id!: String;
-    username!: String;
+    _id!: number;
+    name!: String;
+    gender!:String;
+    image!:String;
+    email!:String;
+    phone!:String;
     password!: String;
+    address!:String;
+    city!:String;
+    state!:String;
+    pin!:String;
+    country!:String;
+    role!:Role;
+    blocked!:String;
+}
+
+export class Role{
+    _id!:number;
+    name:String;
 }
 
 export class Tag{

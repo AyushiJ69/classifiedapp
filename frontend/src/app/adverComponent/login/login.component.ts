@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   )   { 
     this.loginForm = this.formBuilder.group({
-      username: [''],
+      name: [''],
       password: [''],
      
     })
@@ -41,10 +41,10 @@ export class LoginComponent implements OnInit {
 
         {
         localStorage.setItem('isLoggedIn','true');
-        localStorage.setItem('token', res.data[0]._id); 
-        localStorage.setItem('username', res.data[0].username); 
+        localStorage.setItem('token', res[0].name); 
+        localStorage.setItem('username', res[0].name); 
         console.log('Login successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/')).then(() => {
+        this.ngZone.run(() => this.router.navigateByUrl('/dashboard')).then(() => {
           window.location.reload();
         });
       }

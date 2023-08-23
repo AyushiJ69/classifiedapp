@@ -14,8 +14,8 @@ export class AddAdsComponent implements OnInit {
   adsForm: FormGroup;
   tagForm: FormGroup;
   categoryForm: FormGroup;
-  tags: any = [];
-  categories: any = [];
+  tags:any = [{tagName:'trending'},{tagName:'hot'},{tagName:'top'}];
+  categories:any = [{categoryName:'books'},{categoryName:'accessories'}];
   tagname: any;
   categoryname: any;
   constructor(
@@ -26,14 +26,9 @@ export class AddAdsComponent implements OnInit {
   ) {
     this.adsForm = this.formBuilder.group({
       title: [''],
-      type: [''],
-      tag: [''],
       category: [''],
-      advertisor: [''],
-      start_date: [''],
-      end_date: [''],
-      description: [''],
-      photoUrl: ['']
+      text: [''],
+      images: ['']
     })
     this.tagForm = this.formBuilder.group({
       tagName: ['']
@@ -55,17 +50,12 @@ export class AddAdsComponent implements OnInit {
 
   onSubmit(): any {
     console.log(this.adsForm.value)
-    this.adsForm.value['start_date'] = Date();
-    this.adsForm.value['end_date'] = Date();
     console.log(this.tagname)
     console.log(this.categoryname)
-    this.adsForm.value['category'] = this.categoryname;
-    this.adsForm.value['tag'] = this.tagname;
-    this.adsForm.value['advertisor'] = localStorage.getItem('username');
     this.crudService.Addads(this.adsForm.value)
       .subscribe(() => {
         console.log('Data added successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/'))
+        this.ngZone.run(() => this.router.navigateByUrl('/dashboard'))
       }, (err) => {
         console.log(err);
       });
