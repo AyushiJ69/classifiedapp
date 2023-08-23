@@ -7,7 +7,8 @@ import { CrudService } from './../service/crud.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  Ads:any = [{items:{title:"Example1",type:"A",category:"ABC",tag:"a",description:"a"}},{items:{title:"Example1",type:"A",category:"ABC",tag:"a",description:"a"}}];
+  Ads:any = [{title:"Example1",type:"A",category:"ABC",tag:"a",description:"a",photoUrl:"https://www.91-img.com/gallery_images_uploads/3/d/3df5ca6a9b470f715b085991144a5b76e70da975.JPG?tr=h-630,c-at_max,q-80"}
+  ,{title:"Example1",type:"A",category:"ABC",tag:"a",description:"a",photoUrl:"https://help.apple.com/assets/640A52196275DE31D4371B5E/640A52226275DE31D4371B8B/en_US/0473dc1ed2d23593ccc1bce26e9c2011.png"}];
   tags:any = [];
   category:any = [];
   selectedTagsList = [];
